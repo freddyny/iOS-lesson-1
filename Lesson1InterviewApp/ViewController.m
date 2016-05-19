@@ -9,12 +9,20 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property UIView *myView;
 
 @end
 
 @implementation ViewController
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch locationInView:self.view];
+    CGRect rect = self.myView.frame;
+    rect.origin = point;
+    self.myView.frame = rect;
+    
+    
     UIDevice *device = [UIDevice currentDevice];
     switch (device.orientation) {
         case UIDeviceOrientationPortrait:
@@ -28,6 +36,8 @@
             NSLog(@"default case!");
             break;
     }
+    
+   
     
     
     NSLog(@"count: %i", self.count);
@@ -62,6 +72,14 @@
     self.myLabel.text = @"Count = 0";
     
     [self.view addSubview:self.myLabel];
+    
+    
+    rect = CGRectMake(100, 100, 40, 40);
+    self.myView = [[UIView alloc] initWithFrame:rect];
+    self.myView.backgroundColor = [UIColor redColor];
+    
+    [self.view addSubview:self.myView];
+
     
     
 }
