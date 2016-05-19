@@ -15,6 +15,10 @@
 
 @implementation ViewController
 
+
+
+
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
     CGPoint point = [touch locationInView:self.view];

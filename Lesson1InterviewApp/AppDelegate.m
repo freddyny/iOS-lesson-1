@@ -16,8 +16,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    return YES;
+
+        NSString *title = @"About this App";
+        NSString *msg = @"Written by Frederik Nygaard";
+        [[[UIAlertView alloc] initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
