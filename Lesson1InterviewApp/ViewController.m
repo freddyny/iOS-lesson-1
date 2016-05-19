@@ -14,6 +14,20 @@
 
 @implementation ViewController
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    self.count++;
+    NSLog(@"count: %i", self.count);
+    self.view.backgroundColor = [UIColor yellowColor];
+    
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
