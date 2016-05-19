@@ -15,7 +15,21 @@
 @implementation ViewController
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    self.count++;
+    UIDevice *device = [UIDevice currentDevice];
+    switch (device.orientation) {
+        case UIDeviceOrientationPortrait:
+            self.count++;
+            break;
+        case UIDeviceOrientationLandscapeLeft:
+        case UIDeviceOrientationLandscapeRight:
+            self.count--;
+            break;
+        default:
+            NSLog(@"default case!");
+            break;
+    }
+    
+    
     NSLog(@"count: %i", self.count);
     self.view.backgroundColor = [UIColor yellowColor];
     
