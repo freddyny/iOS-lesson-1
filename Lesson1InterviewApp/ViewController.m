@@ -27,6 +27,7 @@
     self.myView.frame = rect;
     
     
+    
     UIDevice *device = [UIDevice currentDevice];
     switch (device.orientation) {
         case UIDeviceOrientationPortrait:
@@ -41,14 +42,22 @@
             break;
     }
     
-   
+    NSDate *currDate = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"dd.MM.YY"];
+    NSString *dateString = [dateFormatter stringFromDate:currDate];
+    NSLog(@"%@",dateString);
     
+
+    
+    self.myLabel.text = [NSString stringWithFormat:@"Count = 0, Date: %@",dateString];
+    
+
     
     NSLog(@"count: %i", self.count);
     self.view.backgroundColor = [UIColor yellowColor];
     
-    
-    NSString *s = [NSString stringWithFormat:@"Count: %i", self.count];
+    NSString *s = [NSString stringWithFormat:@"Count: %i, %@, Pos: (%.f,%.f)", self.count,dateString, point.x,point.y];
     self.myLabel.text = s;
 }
 
@@ -73,7 +82,15 @@
     
     rect = CGRectInset(rect,50,50);
     self.myLabel = [[UILabel alloc] initWithFrame:rect];
-    self.myLabel.text = @"Count = 0";
+    
+    
+    NSDate *currDate = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"dd.MM.YY"];
+    NSString *dateString = [dateFormatter stringFromDate:currDate];
+    NSLog(@"%@",dateString);
+    self.myLabel.text = [NSString stringWithFormat:@"Count = 0, %@, pos,0.0 ",dateString];
+    
     
     [self.view addSubview:self.myLabel];
     
