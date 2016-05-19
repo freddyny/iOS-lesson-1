@@ -19,6 +19,9 @@
     NSLog(@"count: %i", self.count);
     self.view.backgroundColor = [UIColor yellowColor];
     
+    
+    NSString *s = [NSString stringWithFormat:@"Count: %i", self.count];
+    self.myLabel.text = s;
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -31,6 +34,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    //Display size of the view.
+    CGRect rect = self.view.frame;
+    NSLog(@"%@",NSStringFromCGRect(rect));
+    
+    rect = self.view.bounds;
+    NSLog(@"%@",NSStringFromCGRect(rect));
+    
+    
+    rect = CGRectInset(rect,50,50);
+    self.myLabel = [[UILabel alloc] initWithFrame:rect];
+    self.myLabel.text = @"Count = 0";
+    
+    [self.view addSubview:self.myLabel];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

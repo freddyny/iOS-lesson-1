@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController
 @property int count;
+@property UILabel *myLabel;
 
 
 
