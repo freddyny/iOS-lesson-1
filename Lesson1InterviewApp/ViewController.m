@@ -31,10 +31,12 @@
     UIDevice *device = [UIDevice currentDevice];
     switch (device.orientation) {
         case UIDeviceOrientationPortrait:
+            self.view.backgroundColor = [UIColor yellowColor];
             self.count++;
             break;
         case UIDeviceOrientationLandscapeLeft:
         case UIDeviceOrientationLandscapeRight:
+            self.view.backgroundColor = [UIColor greenColor];
             self.count--;
             break;
         default:
@@ -55,7 +57,7 @@
 
     
     NSLog(@"count: %i", self.count);
-    self.view.backgroundColor = [UIColor yellowColor];
+    
     
     NSString *s = [NSString stringWithFormat:@"Count: %i, %@, Pos: (%.f,%.f)", self.count,dateString, point.x,point.y];
     self.myLabel.text = s;
